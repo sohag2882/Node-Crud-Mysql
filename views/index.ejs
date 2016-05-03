@@ -1,0 +1,83 @@
+<% include layouts/header.ejs %>
+<!-- Main -->
+<div class="container">
+    <!-- upper section -->
+    <div class="row">
+        <div class="col-sm-2">
+            <!-- left -->
+            <h3><i class="glyphicon glyphicon-briefcase"></i> Toolbox</h3>
+            <hr>
+
+            <ul class="nav nav-stacked">
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-flash"></i> Alerts</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-link"></i> Links</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-list-alt"></i> Reports</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-book"></i> Books</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-briefcase"></i> Tools</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-time"></i> Real-time</a></li>
+                <li><a href="" target="ext"><i class="glyphicon glyphicon-plus"></i> Advanced..</a></li>
+            </ul>
+
+            <hr>
+
+        </div><!-- /span-3 -->
+        <div class="col-sm-10">
+            <!-- column 2 -->
+            <h3><i class="glyphicon glyphicon-dashboard"></i> List</h3>
+            <hr>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ><i class="glyphicon glyphicon-plus"></i> Add Information</button>
+            <br><br>
+            <div class="row">
+                <!-- center left-->
+                <div class="col-md-12">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="text-center">
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Address</td>
+                            <td>Action</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% if(data.length>0)
+                        for(var i=0; i<data.length; i++) { %>
+
+                            <tr>
+                                <td><%=(i+1)%></td>
+                                <td><%=data[i].name%></td>
+                                <td><%=data[i].email%></td>
+                                <td><%=data[i].phone%></td>
+                                <td><%=data[i].address%></td>
+                                <td>
+                                    <a href="/edit/<%=data[i].person_id%>" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+                                    <a href="/delete/<%=data[i].person_id%>" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-trash" onclick="return check()"></i></a>
+                                </td>
+                            </tr>
+                        <% }%>
+                        </tbody>
+                    </table>
+                </div><!--/col-->
+            </div><!--/row-->
+        </div><!--/col-span-9-->
+
+    </div><!--/row-->
+    <!-- /upper section -->
+
+</div><!--/container-->
+<!-- /Main -->
+<% include layouts/footer.ejs %>
+<script>
+    function check(){
+        var chk=confirm('Want to delete this ?');
+        if(chk){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>
+

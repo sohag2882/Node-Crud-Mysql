@@ -1,0 +1,27 @@
+{
+  "name": "crud_node_mysql",
+  "version": "1.0.0",
+  "description": "crud with node & mysql",
+  "main": "app.js",
+  "scripts": {
+    "test": "none",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "app"
+  ],
+  "author": "Mustafizur Rahman",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.7.0",
+    "mysql": "^2.10.2"
+  }
+}
